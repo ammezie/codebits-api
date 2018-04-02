@@ -126,6 +126,7 @@ return [
                 'bits' => \App\GraphQL\Query\BitsQuery::class,
             ],
             'mutation' => [
+                'signUp' => \App\GraphQL\Mutation\SignUpMutation::class,
             ]
         ]
     ],
