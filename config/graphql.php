@@ -2,7 +2,6 @@
 
 
 return [
-
     /*
      * The prefix for routes
      */
@@ -46,7 +45,7 @@ return [
      *     'mutation' => '\Folklore\GraphQL\GraphQLController@mutation'
      * ]
      */
-    'controllers' => \Folklore\GraphQL\GraphQLController::class.'@query',
+    'controllers' => \Folklore\GraphQL\GraphQLController::class . '@query',
 
     /*
      * The name of the input variable that contain variables when you query the
@@ -84,7 +83,7 @@ return [
      */
     'graphiql' => [
         'routes' => '/graphiql/{graphql_schema?}',
-        'controller' => \Folklore\GraphQL\GraphQLController::class.'@graphiql',
+        'controller' => \Folklore\GraphQL\GraphQLController::class . '@graphiql',
         'middleware' => [],
         'view' => 'graphql::graphiql',
         'composer' => \Folklore\GraphQL\View\GraphiQLComposer::class,
@@ -124,10 +123,9 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-
+                'bits' => \App\GraphQL\Query\BitsQuery::class,
             ],
             'mutation' => [
-
             ]
         ]
     ],
@@ -181,7 +179,8 @@ return [
      * ]
      */
     'types' => [
-
+        'User' => \App\GraphQL\Type\UserType::class,
+        'Bit' => \App\GraphQL\Type\BitType::class,
     ],
 
     /*

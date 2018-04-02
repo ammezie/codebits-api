@@ -27,18 +27,23 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function snippets()
+    protected $casts = [
+        'created_at' => 'string',
+        'updated_at' => 'string',
+    ];
+
+    public function bits()
     {
-        return $this->hasMany(Snippet::class);
+        return $this->hasMany(Bit::class);
     }
 
-    public function replies()
-    {
-        return $this->hasMany(Snippet::class, 'snippet_id');
-    }
+    // public function replies()
+    // {
+    //     return $this->hasMany(Bit::class, 'bit_id');
+    // }
 
-    public function likes()
-    {
-        return $this->hasMany(Like::class);
-    }
+    // public function likes()
+    // {
+    //     return $this->hasMany(Like::class);
+    // }
 }

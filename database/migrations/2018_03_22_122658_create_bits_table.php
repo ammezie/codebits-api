@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSnippetsTable extends Migration
+class CreateBitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateSnippetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('snippets', function (Blueprint $table) {
+        Schema::create('bits', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->unsignedInteger('snippet_id')->nullable();
+            $table->unsignedInteger('bit_id')->nullable();
             $table->text('snippet');
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ class CreateSnippetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('snippets');
+        Schema::dropIfExists('bits');
     }
 }
