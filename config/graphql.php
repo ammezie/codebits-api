@@ -134,6 +134,7 @@ return [
                 'deleteBit' => \App\GraphQL\Mutation\DeleteBitMutation::class,
                 'replyBit' => \App\GraphQL\Mutation\ReplyBitMutation::class,
                 'likeBit' => \App\GraphQL\Mutation\LikeBitMutation::class,
+                'unlikeBit' => \App\GraphQL\Mutation\UnlikeBitMutation::class,
             ]
         ]
     ],
