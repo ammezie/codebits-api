@@ -129,6 +129,7 @@ return [
                 'signUp' => \App\GraphQL\Mutation\SignUpMutation::class,
                 'logIn' => \App\GraphQL\Mutation\LogInMutation::class,
                 'newBit' => \App\GraphQL\Mutation\NewBitMutation::class,
+                'updateBit' => \App\GraphQL\Mutation\UpdateBitMutation::class,
             ]
         ]
     ],
