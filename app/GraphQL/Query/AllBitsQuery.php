@@ -3,15 +3,15 @@
 namespace App\GraphQL\Query;
 
 use GraphQL;
+use App\Bit;
 use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Support\Query;
-use App\Bit;
 use GraphQL\Type\Definition\ResolveInfo;
 
-class BitsQuery extends Query
+class AllBitsQuery extends Query
 {
     protected $attributes = [
-        'name' => 'bits'
+        'name' => 'allBits'
     ];
 
     public function type()

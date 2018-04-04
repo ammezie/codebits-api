@@ -123,11 +123,12 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-                'bits' => \App\GraphQL\Query\BitsQuery::class,
+                'allBits' => \App\GraphQL\Query\AllBitsQuery::class,
             ],
             'mutation' => [
                 'signUp' => \App\GraphQL\Mutation\SignUpMutation::class,
                 'logIn' => \App\GraphQL\Mutation\LogInMutation::class,
+                'newBit' => \App\GraphQL\Mutation\NewBitMutation::class,
             ]
         ]
     ],
