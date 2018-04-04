@@ -5,6 +5,7 @@ namespace App\GraphQL\Mutation;
 use App\Like;
 use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Support\Mutation;
+use App\Bit;
 
 class LikeBitMutation extends Mutation
 {
@@ -35,12 +36,12 @@ class LikeBitMutation extends Mutation
 
     public function resolve($root, $args)
     {
+        $bit = Bit::find($args['bit_id']);
+
         $like = new Like();
-
         $like->user_id = auth()->user()->id;
-        $like->bit_id = $args['bit_id'];
 
-        $like->save();
+        $bit->likes()->save($like);
 
         return 'Like successful!';
     }

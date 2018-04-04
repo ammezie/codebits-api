@@ -25,7 +25,7 @@ class ReplyType extends GraphQLType
                 'description' => 'The user that posted a reply'
             ],
             'bit' => [
-                'type' => Type::listOf(GraphQL::type('Bit')),
+                'type' => Type::nonNull(GraphQL::type('Bit')),
                 'description' => 'The bit that was replied to'
             ],
             'reply' => [

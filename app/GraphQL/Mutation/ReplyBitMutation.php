@@ -3,6 +3,7 @@
 namespace App\GraphQL\Mutation;
 
 use GraphQL;
+use App\Bit;
 use App\Reply;
 use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Support\Mutation;
@@ -41,13 +42,13 @@ class ReplyBitMutation extends Mutation
 
     public function resolve($root, $args)
     {
-        $reply = new Reply();
+        $bit = Bit::find($args['bit_id']);
 
+        $reply = new Reply();
         $reply->user_id = auth()->user()->id;
-        $reply->bit_id = $args['bit_id'];
         $reply->reply = $args['reply'];
 
-        $reply->save();
+        $bit->replies()->save($reply);
 
         return $reply;
     }
