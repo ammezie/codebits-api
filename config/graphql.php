@@ -127,6 +127,7 @@ return [
             ],
             'mutation' => [
                 'signUp' => \App\GraphQL\Mutation\SignUpMutation::class,
+                'logIn' => \App\GraphQL\Mutation\LogInMutation::class,
             ]
         ]
     ],
