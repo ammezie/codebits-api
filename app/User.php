@@ -35,7 +35,7 @@ class User extends Authenticatable implements JWTSubject
 
     // public function replies()
     // {
-    //     return $this->hasMany(Bit::class, 'bit_id');
+    //     return $this->hasMany(Reply::class);
     // }
 
     // public function likes()

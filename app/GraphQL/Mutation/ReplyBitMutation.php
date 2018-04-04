@@ -3,7 +3,7 @@
 namespace App\GraphQL\Mutation;
 
 use GraphQL;
-use App\Bit;
+use App\Reply;
 use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Support\Mutation;
 
@@ -15,7 +15,7 @@ class ReplyBitMutation extends Mutation
 
     public function type()
     {
-        return GraphQL::type('Bit');
+        return GraphQL::type('Reply');
     }
 
     public function args()
@@ -26,8 +26,8 @@ class ReplyBitMutation extends Mutation
                 'type' => Type::nonNull(Type::int()),
                 'rules' => ['required'],
             ],
-            'snippet' => [
-                'name' => 'snippet',
+            'reply' => [
+                'name' => 'reply',
                 'type' => Type::nonNull(Type::string()),
                 'rules' => ['required'],
             ],
@@ -41,13 +41,14 @@ class ReplyBitMutation extends Mutation
 
     public function resolve($root, $args)
     {
-        $bit = new Bit();
+        $reply = new Reply();
 
-        $bit->user_id = auth()->user()->id;
-        $bit->bit_id = $args['bit_id'];
-        $bit->snippet = $args['snippet'];
-        $bit->save();
+        $reply->user_id = auth()->user()->id;
+        $reply->bit_id = $args['bit_id'];
+        $reply->reply = $args['reply'];
 
-        return $bit;
+        $reply->save();
+
+        return $reply;
     }
 }

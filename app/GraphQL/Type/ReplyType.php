@@ -6,11 +6,11 @@ use GraphQL;
 use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Support\Type as GraphQLType;
 
-class BitType extends GraphQLType
+class ReplyType extends GraphQLType
 {
     protected $attributes = [
-        'name' => 'Bit',
-        'description' => 'Code bit'
+        'name' => 'Reply',
+        'description' => 'Reply to codebit'
     ];
 
     public function fields()
@@ -18,19 +18,19 @@ class BitType extends GraphQLType
         return [
             'id' => [
                 'type' => Type::nonNull(Type::int()),
-                'description' => 'The id of a bit'
+                'description' => 'The id of a reply'
             ],
             'user' => [
                 'type' => Type::nonNull(GraphQL::type('User')),
-                'description' => 'The user that posted a bit'
+                'description' => 'The user that posted a reply'
             ],
-            'replies' => [
-                'type' => Type::listOf(GraphQL::type('Reply')),
-                'description' => 'The replies to a bit'
+            'bit' => [
+                'type' => Type::listOf(GraphQL::type('Bit')),
+                'description' => 'The bit that was replied to'
             ],
-            'snippet' => [
+            'reply' => [
                 'type' => Type::nonNull(Type::string()),
-                'description' => 'The code bit'
+                'description' => 'The reply'
             ],
             'created_at' => [
                 'type' => Type::string(),

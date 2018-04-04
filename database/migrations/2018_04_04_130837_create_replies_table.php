@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBitsTable extends Migration
+class CreateRepliesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateBitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bits', function (Blueprint $table) {
+        Schema::create('replies', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->text('snippet');
+            $table->unsignedInteger('bit_id');
+            $table->string('reply');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateBitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bits');
+        Schema::dropIfExists('replies');
     }
 }
