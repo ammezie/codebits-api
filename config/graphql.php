@@ -131,6 +131,7 @@ return [
                 'newBit' => \App\GraphQL\Mutation\NewBitMutation::class,
                 'updateBit' => \App\GraphQL\Mutation\UpdateBitMutation::class,
                 'deleteBit' => \App\GraphQL\Mutation\DeleteBitMutation::class,
+                'replyBit' => \App\GraphQL\Mutation\ReplyBitMutation::class,
             ]
         ]
     ],
