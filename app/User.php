@@ -28,11 +28,6 @@ class User extends Authenticatable implements JWTSubject
         'password', 'remember_token',
     ];
 
-    protected $casts = [
-        'created_at' => 'string',
-        'updated_at' => 'string',
-    ];
-
     public function bits()
     {
         return $this->hasMany(Bit::class);

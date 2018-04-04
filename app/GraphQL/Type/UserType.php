@@ -42,4 +42,14 @@ class UserType extends GraphQLType
             ],
         ];
     }
+
+    protected function resolveCreatedAtField($root, $args)
+    {
+        return (string) $root->created_at;
+    }
+
+    protected function resolveUpdatedAtField($root, $args)
+    {
+        return (string) $root->updated_at;
+    }
 }

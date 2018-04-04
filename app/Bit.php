@@ -6,11 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bit extends Model
 {
-    protected $casts = [
-        'created_at' => 'string',
-        'updated_at' => 'string',
-    ];
-
     public function user()
     {
         return $this->belongsTo(User::class);
