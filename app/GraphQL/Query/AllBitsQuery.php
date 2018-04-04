@@ -33,6 +33,10 @@ class AllBitsQuery extends Query
             if ($field === 'replies') {
                 $bits->with('replies');
             }
+
+            if ($field === 'likes_count') {
+                $bits->with('likes');
+            }
         }
 
         return $bits->latest()->get();

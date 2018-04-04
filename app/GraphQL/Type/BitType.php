@@ -24,10 +24,6 @@ class BitType extends GraphQLType
                 'type' => Type::nonNull(GraphQL::type('User')),
                 'description' => 'The user that posted a bit'
             ],
-            'replies' => [
-                'type' => Type::listOf(GraphQL::type('Reply')),
-                'description' => 'The replies to a bit'
-            ],
             'snippet' => [
                 'type' => Type::nonNull(Type::string()),
                 'description' => 'The code bit'
@@ -40,6 +36,14 @@ class BitType extends GraphQLType
                 'type' => Type::string(),
                 'description' => 'Date a bit was updated'
             ],
+            'replies' => [
+                'type' => Type::listOf(GraphQL::type('Reply')),
+                'description' => 'The replies to a bit'
+            ],
+            'likes_count' => [
+                'type' => Type::int(),
+                'description' => 'The number of likes on a bit'
+            ],
         ];
     }
 
@@ -51,5 +55,10 @@ class BitType extends GraphQLType
     protected function resolveUpdatedAtField($root, $args)
     {
         return (string) $root->updated_at;
+    }
+
+    protected function resolveLikesCountField($root, $args)
+    {
+        return $root->likes->count();
     }
 }
