@@ -124,6 +124,7 @@ return [
         'default' => [
             'query' => [
                 'allBits' => \App\GraphQL\Query\AllBitsQuery::class,
+                'bitById' => \App\GraphQL\Query\BitByIdQuery::class,
             ],
             'mutation' => [
                 'signUp' => \App\GraphQL\Mutation\SignUpMutation::class,
@@ -187,6 +188,7 @@ return [
     'types' => [
         'User' => \App\GraphQL\Type\UserType::class,
         'Bit' => \App\GraphQL\Type\BitType::class,
+        'Reply' => \App\GraphQL\Type\ReplyType::class,
     ],
 
     /*
