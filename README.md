@@ -28,6 +28,8 @@ Then run:
 
 ```bash
 php artisan key:generate
+
+php artisan jwt:secret
 ```
 
 ### Prerequisites

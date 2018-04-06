@@ -21,7 +21,7 @@ class AllBitsQuery extends Query
 
     public function resolve($root, $args, $context, ResolveInfo $info)
     {
-        $fields = $info->getFieldSelection(); // $depth = 1
+        $fields = $info->getFieldSelection();
 
         $bits = Bit::query();
 
